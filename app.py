@@ -37,5 +37,14 @@ df_merged = pd.merge(df, df_venc[['awb', 'descrição vencimento']], on='awb', h
 # Atualiza o DataFrame principal
 df = df_merged
 
+# Forçar a leitura da coluna "awb"
+df_venc.rename(columns=lambda x: x.strip().lower(), inplace=True)
+
+# Mostra se a nova coluna "descriçao vencimento" esta no dataframe
+st.write("🔍 Colunas disponíveis:", df.columns.tolist())
+
 # Exibe o resultado final
 st.dataframe(df)
+
+print(df.columns)
+print(df_venc.columns)
