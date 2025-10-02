@@ -45,7 +45,7 @@ if uploaded_file is not None:
     df_venc.columns = df_venc.columns.str.strip().str.lower()
 
     # Padroniza AWBs
-    df['awb'] = df['awb'].astype(str).str.extract(r'(\d+)').str.upper().str.strip()
+    df['awb'] = df['awb'].astype(str).str.extract(r'(\d+)')[0].fillna("").str.upper().str.strip()
     df_venc['awb'] = df_venc['awb'].astype(str).str.upper().str.strip()
 
     # Preenche vencimentos ausentes
