@@ -49,11 +49,7 @@ if uploaded_file is not None:
     # Padroniza AWBs
     df['awb'] = df['awb'].astype(str).str.extract(r'(\d+)')[0].fillna("").str.upper().str.strip()
     df_venc['awb'] = df_venc['awb'].astype(str).str.upper().str.strip()
-<<<<<<< HEAD
 
-=======
-   
->>>>>>> 19901d005f8c2dc9b763ffab10c56dc1e92cb601
     # Merge entre CSV e Excel
     df_merged = pd.merge(df, df_venc[['awb', 'descrição vencimento']], on='awb', how='left')
     st.write(f"🔢 Linhas após merge: {len(df_merged)}")
