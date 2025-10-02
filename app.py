@@ -47,10 +47,7 @@ if uploaded_file is not None:
     # Padroniza AWBs
     df['awb'] = df['awb'].astype(str).str.extract(r'(\d+)')[0].fillna("").str.upper().str.strip()
     df_venc['awb'] = df_venc['awb'].astype(str).str.upper().str.strip()
-
-    # Preenche vencimentos ausentes
-    df['descrição vencimento'] = df['descrição vencimento'].fillna("Sem vencimento")
-
+   
     # Merge entre CSV e Excel
     df_merged = pd.merge(df, df_venc[['awb', 'descrição vencimento']], on='awb', how='left')
 
